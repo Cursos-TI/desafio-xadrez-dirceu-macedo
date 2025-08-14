@@ -57,9 +57,9 @@ int main() {
     {
         for(int i = 0; i < 2; i++)
         {
-            printf("Cima\n"); // Imprime "Cima" 2x
+            printf("Baixo\n"); // Imprime "Baixo" 2x
         }
-        printf("Direita\n"); // Imprime "Direita" 1x
+        printf("Esquerda\n"); // Imprime "Esquerda" 1x
     }
     
 
