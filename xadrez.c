@@ -60,18 +60,31 @@ int main() {
     moverRainha(casasRainha);
     printf("\n");
 
-    // ==========================
-    // Movimento do CAVALO
-    // ==========================
+    // ==================================================
+    // Movimento do CAVALO (loops aninhados + continue/break)
+    // 2 casas para Cima e 1 para Direita por movimento
+    // ==================================================
     printf("Movimento do Cavalo:\n");
-    for (int m = 0; m < movimentosCavalo; m++) {
-        for (int i = 0, j = 0; i < 3 && j < 2; i++, j++) {
-            if (i < 2) {
-                printf("Cima\n"); // duas casas para cima
-                continue;
+    for (int mov = 0; mov < movimentosCavalo; mov++) {        // repete o "L"
+        for (int segmento = 0; segmento < 2; segmento++) {     // 0 = vertical, 1 = horizontal
+            int maxPassos = (segmento == 0) ? 2 : 1;           // 2 "Cima" e 1 "Direita"
+            for (int passo = 0; passo < 3; passo++) {          // loop interno com condição extra
+                if (passo >= maxPassos) {
+                    // No segmento vertical, ignore passos excedentes;
+                    // no horizontal, encerre o segmento.
+                    if (segmento == 0) {
+                        continue;
+                    } else {
+                        break;
+                    }
+                }
+
+                if (segmento == 0) {
+                    printf("Cima\n");
+                } else {
+                    printf("Direita\n");
+                }
             }
-            printf("Direita\n"); // uma casa para a direita
-            break; // fim do movimento em L
         }
     }
 
