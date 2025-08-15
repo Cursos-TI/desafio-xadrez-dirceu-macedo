@@ -18,17 +18,15 @@ void moverRainha(int casas) {
     moverRainha(casas - 1);
 }
 
-// Bispo (recursividade + loops aninhados)
-void moverBispo(int casas, int passo) {
-    if (passo > casas) return; // Caso base
-    for (int v = 0; v < 1; v++) { // Loop vertical (aqui é sempre 1 passo para cima)
-        for (int h = 0; h < 1; h++) { // Loop horizontal (1 passo para direita)
-            printf("Cima\n");
-            printf("Direita\n");
-        }
+// Bispo (recursividade)
+void moverBispo(int casas) { 
+    if (casas <= 0) return;
+     printf("Cima\n");
+     printf("Direita\n");
+     moverBispo(casas - 1);
     }
-    moverBispo(casas, passo + 1); // Próxima casa
-}
+
+ 
 
 int main() {
     // ==========================
@@ -50,7 +48,7 @@ int main() {
     // Movimento do BISPO
     // ==========================
     printf("Movimento do Bispo:\n");
-    moverBispo(casasBispo, 1);
+    moverBispo(casasBispo);
     printf("\n");
 
     // ==========================
